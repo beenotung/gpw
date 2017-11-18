@@ -2,7 +2,21 @@
 
 generate password for web account based on master key and domain name of the service
 
+
 == Supported Platforms
-1. Linux
-    (or any other system that can run bash, e.g. windows with msys2)
-2. Web (Javascript)
+=== Linux
+(or any other system that can run bash, e.g. windows with msys2)
+
+`./gpw` or `bash gpw`
+
+The password will be copied to primary X selection (not clipboard).
+One can paste by [Shift+Insert] or Middle Click.
+
+=== Web
+The generated result is not stored on any servers. It is not even copied to clipboard by default.
+
+==== Offline
+open *index.html* from your browser
+
+==== Online
+open link:https://gpw.surge.sh[] hosted on surge (CDN)
