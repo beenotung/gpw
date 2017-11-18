@@ -19,6 +19,7 @@
     "watch": "run-p watch:*",
     "watch:npm": "npm-watch",
     "watch:ts": "tsc -p . --watch",
+    "release": "mkdir -p dist && cp index.* dist/ && surge dist gpw.surge.sh",
     "dev": "run-p watch serve"
   },
   "repository": {
@@ -50,6 +51,7 @@
     "http-server": "^0.10.0",
     "npm-run-all": "^4.1.2",
     "npm-watch": "^0.3.0",
+    "surge": "^0.19.0",
     "tslint": "^5.8.0",
     "tslint-eslint-rules": "^4.1.1",
     "typescript": "^2.6.1",
