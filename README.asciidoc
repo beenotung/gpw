@@ -1,6 +1,6 @@
 = gpw
 
-generate password for web account based on master key and domain name of the service
+generate password for web account based on master key and service (domain) name
 
 
 == Supported Platforms

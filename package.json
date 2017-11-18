@@ -36,11 +36,14 @@
   },
   "homepage": "https://github.com/beenotung/gpw#readme",
   "dependencies": {
-    "@beenotung/tslib": "^8.5.1"
+    "@beenotung/tslib": "^8.5.1",
+    "crypto-js": "^3.1.9-1",
+    "typestub-qrcode": "^0.1.0"
   },
   "devDependencies": {
     "@angular/compiler": "^4.0.0",
     "@angular/core": "^4.0.0",
+    "@types/crypto-js": "^3.1.37",
     "@types/node": "^8.0.51",
     "browserify": "^14.5.0",
     "codelyzer": "^4.0.1",

@@ -1,9 +1,15 @@
 #!/bin/bash
 ## generate password
 
+method="sha256sum"
+if [ "$1" == "md5" ]; then
+  method="md5sum"
+fi
+
 echo -n "url: "; read url
 if [[ $url == *"/"* ]]; then
-  domain=$(echo "$url" | sed 's,/,\n,g' | grep -v "^$" | grep -v ':' | head -n 1 | sed 's,\.,\n,g' | grep -Ev "^(www|com|hk|org|net|io)$" | xargs | sed -e 's/ /./g')
+  domain=$(echo "$url" | sed 's,/,\n,g' | grep -v "^$" | grep -v ':' | head -n 1 | sed 's,\.,\n,g' \
+    | grep -Ev "^(www|com|hk|org|net|io|org)$" | xargs | sed -e 's/ /./g')
   echo -n "domain: $domain? [Y/n] "; read input
   if [ "${input,,}" = "n" ]; then
     echo -n "domain: "; read domain
@@ -22,7 +28,7 @@ if [ "$seed2" != "" ] && [ "$seed" != "$seed2" ]; then
   echo "Error: seed not matched!"
   exit 1
 fi
-pw=$(echo "$domain$seed" | md5sum | sed 's/  -$//')
+pw=$(echo "$domain$seed" | $method | sed 's/  -$//')
 #echo "pw: $pw"
 echo "ok: saved to primary X selection, use [middle button] or [Shift+Ins] to paste (not [Ctrl+V])"
 echo "$pw" | xclip
