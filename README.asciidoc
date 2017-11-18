@@ -13,7 +13,11 @@ The password will be copied to primary X selection (not clipboard).
 One can paste by [Shift+Insert] or Middle Click.
 
 === Web
-The generated result is not stored on any servers. It is not even copied to clipboard by default.
+=== Features
+1. Copy to Clipboard Support
+    (not enabled by default)
+2. QR code generation
+    (for mobile device without internet (with another computer with internet access))
 
 ==== Offline
 open *index.html* from your browser
