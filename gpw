@@ -1,0 +1,28 @@
+#!/bin/bash
+## generate password
+
+echo -n "url: "; read url
+if [[ $url == *"/"* ]]; then
+  domain=$(echo "$url" | sed 's,/,\n,g' | grep -v "^$" | grep -v ':' | head -n 1 | sed 's,\.,\n,g' | grep -Ev "^(www|com|hk|org|net|io)$" | xargs | sed -e 's/ /./g')
+  echo -n "domain: $domain? [Y/n] "; read input
+  if [ "${input,,}" = "n" ]; then
+    echo -n "domain: "; read domain
+  fi
+else
+  echo -n "domain: $url ? [Y/n] "; read input
+  if [ "${input,,}" = "n" ]; then
+    echo -n "domain: "; read domain
+  else
+    domain="$url"
+  fi
+fi
+echo -n "seed: "; read -s seed; echo
+echo -n "[confirm seed] :"; read -s seed2; echo
+if [ "$seed2" != "" ] && [ "$seed" != "$seed2" ]; then
+  echo "Error: seed not matched!"
+  exit 1
+fi
+pw=$(echo "$domain$seed" | md5sum | sed 's/  -$//')
+#echo "pw: $pw"
+echo "ok: saved to primary X selection, use [middle button] or [Shift+Ins] to paste (not [Ctrl+V])"
+echo "$pw" | xclip
