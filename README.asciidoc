@@ -2,6 +2,7 @@
 
 generate password for web account based on master key and service (domain) name
 
+Hosted on link:https://gpw.surge.sh[Surge]
 
 == Supported Platforms
 === Linux
