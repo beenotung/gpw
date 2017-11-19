@@ -19,6 +19,7 @@
     "watch": "run-p watch:*",
     "watch:npm": "npm-watch",
     "watch:ts": "tsc -p . --watch",
+    "prerelease": "npm run build",
     "release": "mkdir -p dist && cp index.* dist/ && surge dist gpw.surge.sh",
     "dev": "run-p watch serve"
   },
