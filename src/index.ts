@@ -1,4 +1,4 @@
-import {q} from "@beenotung/tslib";
+import {q} from "@beenotung/tslib/dom";
 import {version} from "./config";
 import {log} from "./debug";
 import QRCode from "typestub-qrcode";
@@ -19,6 +19,7 @@ const qrcode = q('#qrcode')       as HTMLCanvasElement;
 
 url.onchange = () => {
   domain.value = url.value
+    .toLowerCase()
     .split('/')
     .filter(x => x.length)
     .filter(x => !x.includes(':'))
