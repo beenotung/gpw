@@ -1,4 +1,5 @@
-import {noop} from "@beenotung/tslib";
+const noop: any = () => {
+};
 
 export type mode = "dev" | "test" | "prod";
 export let mode: mode = "dev" as mode;

@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "9"
+  - "8"
+  - "7"
+  - "6"
+  - "5"
+  - "4"
+  - "0.12"
+branches:
+  only:
+    - master
+notifications:
+  email:
+    recipients:
+      - aabbcc1241@yahoo.com.hk
+    on_success: change
+    on_failure: always

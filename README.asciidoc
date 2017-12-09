@@ -1,8 +1,10 @@
 = gpw
 
+image:https://secure.travis-ci.org/beenotung/gpw.png?branch=master[Build Status,link=http://travis-ci.org/beenotung/gpw]
+
 generate password for web account based on master key and service (domain) name
 
-Hosted on link:https://gpw.surge.sh[Surge]
+Hosted on link:https://gpw.surge.sh[CDN Surge]
 
 == Supported Platforms
 === Linux
@@ -25,3 +27,6 @@ open *index.html* from your browser
 
 ==== Online
 open link:https://gpw.surge.sh[] hosted on surge (CDN)
+
+== Todo
+1. update bash version to support length config

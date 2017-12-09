@@ -1,4 +1,5 @@
 #!/bin/bash
+## gpw v0.1.1
 ## generate password
 
 method="sha256sum"
