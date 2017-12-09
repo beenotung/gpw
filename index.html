@@ -3,6 +3,11 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>gpw - Password Generator</title>
+  <script>
+    if (location.protocol === 'http:' && location.host === 'gpw.surge.sh') {
+      location.protocol = 'https:';
+    }
+  </script>
 </head>
 <body>
 <style>
@@ -33,9 +38,28 @@
     top: 0;
     left: 8px;
   }
+
+  h2 {
+    position: absolute;
+    top: 4em;
+    left: 8px;
+    color: gray;
+  }
+
+  h3 {
+    position: absolute;
+    top: 10em;
+    left: 8px;
+    color: gray;
+  }
 </style>
 
 <h1>gpw - Password Generator</h1>
+
+<div id="not_supported">
+  <h2>This browser is not supported.</h2>
+  <h3>Please update it to latest version or try Chrome.</h3>
+</div>
 
 <a href="https://github.com/beenotung/gpw">
   <img style="position: absolute; top: 0; right: 0; border: 0;"
@@ -44,7 +68,7 @@
        data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
 
 <!-- input elements -->
-<table>
+<table style="display: none">
   <tr>
     <td><label for="url">Url</label></td>
     <td><input id="url"></td>
@@ -65,6 +89,10 @@
         <option selected>sha256</option>
       </select>
     </td>
+  </tr>
+  <tr>
+    <td><label for="length">Length</label></td>
+    <td><input id="length" type="number" placeholder="for generated password"></td>
   </tr>
   <tr>
     <td colspan="2" align="center">

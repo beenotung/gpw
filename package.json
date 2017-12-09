@@ -1,6 +1,6 @@
 {
   "name": "gpw",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "generate password",
   "main": "index.js",
   "watch": {
@@ -38,7 +38,6 @@
   },
   "homepage": "https://github.com/beenotung/gpw#readme",
   "dependencies": {
-    "@beenotung/tslib": "^8.5.1",
     "crypto-js": "^3.1.9-1",
     "typestub-qrcode": "^0.1.0"
   },

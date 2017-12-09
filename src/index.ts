@@ -1,4 +1,3 @@
-import {q} from "@beenotung/tslib/dom";
 import {version} from "./config";
 import {log} from "./debug";
 import QRCode from "typestub-qrcode";
@@ -6,16 +5,24 @@ import {MD5, SHA256} from "crypto-js";
 
 log("version:", version);
 
+const q = (x: string, parent: HTMLElement = document.body): HTMLElement => parent.querySelector(x);
+
 const url = q("#url")             as HTMLInputElement;
 const domain = q("#domain")       as HTMLInputElement;
 const seed = q("#seed")           as HTMLInputElement;
 const method = q("#method")       as HTMLSelectElement;
+const length = q("#length")       as HTMLInputElement;
 const gpw = q('#gpw')             as HTMLButtonElement;
 const password = q("#password")   as HTMLInputElement;
 const msg = q('#msg')             as HTMLSpanElement;
 const btnToClip = q('#btnToClip') as HTMLButtonElement;
 const genQRcode = q('#genQRcode') as HTMLButtonElement;
 const qrcode = q('#qrcode')       as HTMLCanvasElement;
+
+const default_length: { [method: string]: number } = {
+  md5: 32
+  , sha256: 64
+};
 
 url.onchange = () => {
   domain.value = url.value
@@ -30,12 +37,18 @@ url.onchange = () => {
   ;
 };
 method.onchange = () => {
-  localStorage['method'] = method.value;
+  let m = localStorage['method'] = method.value;
+  length.value = default_length[m].toString();
 };
 gpw.onclick = () => {
   let s = domain.value + seed.value + "\n";
-  let hash = method.value == "md5" ? MD5 : SHA256;
-  password.value = hash(s).toString();
+  let m = method.value;
+  let hash = m == "md5" ? MD5 : SHA256;
+  let res = hash(s).toString();
+  let len = (+length.value) || default_length[m];
+  for (; res.length < len; res += hash(res + "\n").toString()) ;
+  res = res.slice(0, len);
+  password.value = res;
 };
 btnToClip.onclick = () => {
   password.select();
@@ -56,9 +69,11 @@ genQRcode.onclick = () => {
   })
 };
 
+/* init */
 {
-  let option = localStorage['method'];
-  if (option) {
-    method.value = option;
-  }
+  let option = localStorage['method'] || 'sha256';
+  method.value = option;
+  length.value = default_length[option].toString();
+  q('#not_supported').remove();
+  q('table').style.display = '';
 }
