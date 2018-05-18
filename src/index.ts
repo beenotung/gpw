@@ -36,6 +36,7 @@ url.onchange = () => {
     .split(".")
     .filter(x => ["www", "com", "hk", "org", "net", "io", "org"].indexOf(x) == -1)
     .join(".")
+    .trim()
   ;
 };
 method.onchange = () => {
