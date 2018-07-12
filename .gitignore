@@ -6,3 +6,5 @@ package-lock.json
 
 *.js
 *.js.map
+!service-worker.js
+!sw-toolbox.js
