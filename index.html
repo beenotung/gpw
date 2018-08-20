@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <script>
     if (location.protocol === 'http:' && location.host === 'gpw.surge.sh') {
-      location.protocol = 'https:';
+      // location.protocol = 'https:';
+      location.href = location.href.replace(/http:/,'https:');
     }
   </script>
   <title>gpw - Password Generator</title>

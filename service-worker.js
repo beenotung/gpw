@@ -16,7 +16,7 @@ self.toolbox.precache(
     "index.js",
     "index.html",
     "manifest.json",
-  ],
+  ]
 );
 
 // dynamically cache any other local assets
