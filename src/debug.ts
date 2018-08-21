@@ -1,14 +1,16 @@
 const noop: any = () => {
 };
 
+/* tslint:disable:ban-types */
 function take(log: Function) {
-  let name = log.name;
+  /* tslint:enable:ban-types */
+  const name = log.name;
   if (log.bind) {
-    return log.bind(console)
+    return log.bind(console);
   } else {
     return function () {
-      return (console as any)[name].apply(console, arguments)
-    }
+      return (console as any)[name].apply(console, arguments);
+    };
   }
 }
 
