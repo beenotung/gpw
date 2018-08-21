@@ -5,6 +5,10 @@ const noop: any = () => {
 function take(log: Function) {
   /* tslint:enable:ban-types */
   const name = log.name;
+  if (!log) {
+    // in case console.debug or console.warn is not supported by old version of env
+    log = console.log;
+  }
   if (log.bind) {
     return log.bind(console);
   } else {
