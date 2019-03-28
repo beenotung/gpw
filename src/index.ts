@@ -27,7 +27,7 @@ const default_length: { [method: string]: number } = {
 };
 
 url.onchange = () => {
-  domain.value = url.value
+  let s = url.value
     .toLowerCase()
     .split("/")
     .filter(x => x.length)
@@ -38,6 +38,15 @@ url.onchange = () => {
     .join(".")
     .trim()
   ;
+  function checkPrefix(prefix:string){
+    let pattern = prefix+'.';
+    if(s.startsWith(pattern)&&s.length>pattern.length){
+      s=s.substring(pattern.length)
+    }
+  }
+  checkPrefix('mail');
+  checkPrefix('app');
+  domain.value = s;
 };
 method.onchange = () => {
   const m = localStorage["method"] = method.value;
