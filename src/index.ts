@@ -46,6 +46,8 @@ url.onchange = () => {
   }
   checkPrefix('mail');
   checkPrefix('app');
+  checkPrefix('account');
+  checkPrefix('accounts');
   domain.value = s;
 };
 method.onchange = () => {
