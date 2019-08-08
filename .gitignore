@@ -3,6 +3,7 @@ build/
 dist/
 yarn.lock
 package-lock.json
+pnpm-lock.yaml
 
 *.js
 *.js.map
