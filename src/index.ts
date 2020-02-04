@@ -38,16 +38,16 @@ url.onchange = () => {
     .join(".")
     .trim()
   ;
-  function checkPrefix(prefix:string){
-    let pattern = prefix+'.';
-    if(s.startsWith(pattern)&&s.length>pattern.length){
-      s=s.substring(pattern.length)
+  function checkPrefix(prefix: string) {
+    const pattern = prefix + ".";
+    if (s.startsWith(pattern) && s.length > pattern.length) {
+      s = s.substring(pattern.length);
     }
   }
-  checkPrefix('mail');
-  checkPrefix('app');
-  checkPrefix('account');
-  checkPrefix('accounts');
+  checkPrefix("mail");
+  checkPrefix("app");
+  checkPrefix("account");
+  checkPrefix("accounts");
   domain.value = s;
 };
 method.onchange = () => {
