@@ -19,8 +19,11 @@
     "watch": "run-p watch:*",
     "watch:npm": "npm-watch",
     "watch:ts": "tsc -p . --watch",
-    "prerelease": "npm run build",
-    "release": "mkdir -p dist && cp index.* service-worker.js sw-toolbox.js manifest.json dist/ && surge dist https://gpw.surge.sh",
+    "dist": "mkdir -p dist && cp index.* service-worker.js sw-toolbox.js manifest.json dist/",
+    "release": "run-s build dist upload",
+    "upload": "run-p upload:*",
+    "upload:surge": "surge dist https://gpw.surge.sh",
+    "upload:ipfs": "ipfs add -r dist",
     "dev": "run-p watch serve"
   },
   "repository": {
