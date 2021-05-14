@@ -1,3 +1,5 @@
-inspectionProfiles
-vcs.xml
-workspace.xml
+*
+!modules.xml
+!*.iml
+!dictionaries/
+!.gitignore
