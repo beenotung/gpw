@@ -1,6 +1,6 @@
 {
-  "name": "Ionic Horizon Seed",
-  "short_name": "Ionic Horizon Seed",
+  "name": "Password Generator",
+  "short_name": "gpw",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [
