@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc && esbuild --bundle build/index.js > index.js",
     "test": "tsc --noEmit",
-    "dist": "mkdir -p dist && cp index.* service-worker.js sw-toolbox.js manifest.json dist/",
+    "dist": "mkdir -p dist && cp index.* service-worker.js manifest.json dist/",
     "release": "run-s build dist upload",
     "upload": "run-p upload:*",
     "upload:surge": "surge dist https://gpw.surge.sh",
