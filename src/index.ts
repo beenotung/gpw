@@ -23,7 +23,7 @@ const qrcode = q("#qrcode")       as HTMLCanvasElement;
 
 const default_length: { [method: string]: number } = {
   md5: 32
-  , sha256: 64
+, sha256: 64
 };
 
 url.onchange = () => {
