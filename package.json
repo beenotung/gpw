@@ -1,6 +1,6 @@
 {
   "name": "gpw",
-  "version": "0.2.0",
+  "version": "0.2.4",
   "description": "generate password",
   "main": "index.js",
   "scripts": {
