@@ -21,7 +21,16 @@ One can paste by [Shift+Insert] or Middle Click.
     (for mobile device without internet (with another computer with internet access))
 
 ==== Offline
-open *index.html* from your browser
+
+Run the below commands to get the source code and build the bundle:
+[source,bash]
+----
+git clone https://github.com/beenotung/gpw
+cd gpw
+npm install
+npm run build
+----
+Then open *index.html* from your browser
 
 ==== Online
 open link:https://gpw.surge.sh[] hosted on surge (CDN)
