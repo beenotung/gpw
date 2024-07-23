@@ -50,6 +50,7 @@ url.onchange = () => {
   checkPrefix("accounts");
   checkPrefix("my");
   checkPrefix("login");
+  checkPrefix("dashboard");
   checkPrefix("id");
   checkPrefix("auth0");
   domain.value = s;
