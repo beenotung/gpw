@@ -52,6 +52,7 @@ url.onchange = () => {
   checkPrefix("login");
   checkPrefix("dashboard");
   checkPrefix("id");
+  checkPrefix("sso");
   checkPrefix("auth0");
   checkPrefix("authenticator");
   domain.value = s;
