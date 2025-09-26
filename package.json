@@ -43,6 +43,9 @@
   "pnpm": {
     "overrides": {
       "minimist@<1.2.6": ">=1.2.6"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }
