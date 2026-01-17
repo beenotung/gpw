@@ -37,6 +37,36 @@ pw=$(echo "$domain$seed" | $method | sed 's/  -$//')
 if [ $digits -eq 1 ]; then
   pw=$(echo "$pw" | sed 's/[a-f]//g')
 fi
-#echo "pw: $pw"
-echo "ok: saved to primary X selection, use [middle button] or [Shift+Ins] to paste (not [Ctrl+V])"
-echo "$pw" | xclip
+
+read -p "cut by [n] chars? " cut
+if [ "$cut" != "" ]; then
+  pw=$(echo "$pw" | cut --characters "1-$cut")
+fi
+
+echo "output to:"
+echo "  [1] primary X selection (default)"
+echo "  [2] clipboard"
+echo "  [3] console"
+echo -n "choice: "; read output_choice
+if [ -z "$output_choice" ]; then
+  output_choice="1"
+fi
+
+# ${name,,} converts the variable name to lowercase
+case "${output_choice,,}" in
+  "1"|"primary")
+    echo "$pw" | xclip
+    echo "ok: saved to primary X selection, use [middle button] or [Shift+Ins] to paste (not [Ctrl+V])"
+    ;;
+  "2"|"clipboard")
+    echo "$pw" | xclip -sel clipboard
+    echo "ok: saved to clipboard, use [Ctrl+V] to paste"
+    ;;
+  "3"|"console")
+    echo "pw: $pw"
+    ;;
+  *)
+    echo "invalid choice: $output_choice"
+    exit 1
+    ;;
+esac
