@@ -2,9 +2,13 @@
 ## gpw v0.1.1
 ## generate password
 
+digits=0
 method="sha256sum"
 if [ "$1" == "md5" ]; then
   method="md5sum"
+fi
+if [ "$1" == "digits" ]; then
+  digits=1
 fi
 
 echo -n "url: "; read url
@@ -30,6 +34,9 @@ if [ "$seed2" != "" ] && [ "$seed" != "$seed2" ]; then
   exit 1
 fi
 pw=$(echo "$domain$seed" | $method | sed 's/  -$//')
+if [ $digits -eq 1 ]; then
+  pw=$(echo "$pw" | sed 's/[a-f]//g')
+fi
 #echo "pw: $pw"
 echo "ok: saved to primary X selection, use [middle button] or [Shift+Ins] to paste (not [Ctrl+V])"
 echo "$pw" | xclip
