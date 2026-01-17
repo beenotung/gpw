@@ -24,6 +24,7 @@ const qrcode = q("#qrcode")       as HTMLCanvasElement;
 const default_length: { [method: string]: number } = {
   md5: 32
 , sha256: 64
+, digits: 6
 };
 
 url.onchange = () => {
@@ -61,10 +62,23 @@ method.onchange = () => {
   const m = localStorage["method"] = method.value;
   length.value = default_length[m].toString();
 };
+type WordArray = CryptoJS.lib.WordArray;
+const DIGITS = (message: WordArray): WordArray => {
+  const result = SHA256(message);
+  let hex = result.toString();
+  hex = hex
+    .split('')
+    .filter(d => '0' <= d && d <= '9')
+    .join('');
+  result.toString = () => hex;
+  return result;
+};
 gpw.onclick = () => {
   const s = domain.value + seed.value + "\n";
   const m = method.value;
-  const hash = m == "md5" ? MD5 : SHA256;
+  let hash = SHA256;
+  if (m == "md5") hash = MD5;
+  if (m == "digits") hash = DIGITS;
   let res = hash(s).toString();
   const len = (+length.value) || default_length[m];
   for (; res.length < len; res += hash(res + "\n").toString()) {  }
