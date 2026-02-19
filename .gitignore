@@ -9,3 +9,4 @@ pnpm-lock.yaml
 *.js.map
 !service-worker.js
 !sw-toolbox.js
+*.tgz
