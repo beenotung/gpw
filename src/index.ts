@@ -56,6 +56,8 @@ url.onchange = () => {
   checkPrefix("id");
   checkPrefix("sso");
   checkPrefix("auth0");
+  checkPrefix("auth");
+  checkPrefix("services");
   checkPrefix("authenticator");
   domain.value = s;
 };
