@@ -33,7 +33,14 @@ if [ "$seed2" != "" ] && [ "$seed" != "$seed2" ]; then
   echo "Error: seed not matched!"
   exit 1
 fi
-pw=$(echo "$domain$seed" | $method | sed 's/  -$//')
+
+echo -n "sequence [1]: "; read sequence
+
+if [ -n "$sequence" ] && [ "$sequence" -gt 1 ] 2>/dev/null; then
+  pw=$(echo "$domain$seed$sequence" | $method | sed 's/  -$//')
+else
+  pw=$(echo "$domain$seed" | $method | sed 's/  -$//')
+fi
 if [ $digits -eq 1 ]; then
   pw=$(echo "$pw" | sed 's/[a-f]//g')
 fi

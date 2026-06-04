@@ -12,6 +12,7 @@ const q = (x: string, parent: HTMLElement = document.body): HTMLElement => paren
 const url = q("#url")             as HTMLInputElement;
 const domain = q("#domain")       as HTMLInputElement;
 const seed = q("#seed")           as HTMLInputElement;
+const sequence = q("#sequence")   as HTMLInputElement;
 const method = q("#method")       as HTMLSelectElement;
 const length = q("#length")       as HTMLInputElement;
 const uppercase = q("#uppercase") as HTMLInputElement;
@@ -79,7 +80,11 @@ const DIGITS = (message: WordArray): WordArray => {
   return result;
 };
 gpw.onclick = () => {
-  const s = domain.value + seed.value + "\n";
+  let s = domain.value + seed.value;
+  if (sequence.value.trim() && sequence.valueAsNumber > 1) {
+    s += sequence.value.trim();
+  }
+  s += "\n";
   const m = method.value;
   let hash = SHA256;
   if (m == "md5") hash = MD5;
