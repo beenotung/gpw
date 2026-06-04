@@ -43,6 +43,16 @@ if [ "$cut" != "" ]; then
   pw=$(echo "$pw" | cut --characters "1-$cut")
 fi
 
+echo -n "uppercase? [y/N]: "; read uppercase
+echo -n "symbol? [y/N]: "; read symbol
+
+if [[ "${symbol,,}" =~ ^(y|yes)$ ]]; then
+  pw="!$pw"
+fi
+if [[ "${uppercase,,}" =~ ^(y|yes)$ ]]; then
+  pw="A$pw"
+fi
+
 echo "output to:"
 echo "  [1] primary X selection (default)"
 echo "  [2] clipboard"

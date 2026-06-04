@@ -29,6 +29,16 @@
   table {
     margin: auto;
   }
+
+  #rules {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 </style>
 
 <h1>gpw - Password Generator</h1>
@@ -74,6 +84,21 @@
   <tr>
     <td><label for="length">Length</label></td>
     <td><input id="length" type="number" placeholder="for generated password"></td>
+  </tr>
+  <tr>
+    <td>Rules</td>
+    <td>
+      <ul id="rules" >
+        <li>
+          <label for="uppercase">Uppercase</label>
+          <input type="checkbox" id="uppercase">
+        </li>
+        <li>
+          <label for="symbols">Symbols</label>
+          <input type="checkbox" id="symbols">
+        </li>
+      </ul>
+    </td>
   </tr>
   <tr>
     <td colspan="2" align="center">

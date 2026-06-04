@@ -14,6 +14,8 @@ const domain = q("#domain")       as HTMLInputElement;
 const seed = q("#seed")           as HTMLInputElement;
 const method = q("#method")       as HTMLSelectElement;
 const length = q("#length")       as HTMLInputElement;
+const uppercase = q("#uppercase") as HTMLInputElement;
+const symbols = q("#symbols")     as HTMLInputElement;
 const gpw = q("#gpw")             as HTMLButtonElement;
 const password = q("#password")   as HTMLInputElement;
 const msg = q("#msg")             as HTMLSpanElement;
@@ -86,6 +88,12 @@ gpw.onclick = () => {
   const len = (+length.value) || default_length[m];
   for (; res.length < len; res += hash(res + "\n").toString()) {  }
   res = res.slice(0, len);
+  if (symbols.checked) {
+    res = '!' + res
+  }
+  if (uppercase.checked) {
+    res = 'A' + res
+  }
   password.value = res;
 };
 btnToClip.onclick = () => {
