@@ -52,6 +52,7 @@ url.onchange = () => {
   checkPrefix("app");
   checkPrefix("account");
   checkPrefix("accounts");
+  checkPrefix("portal");
   checkPrefix("user");
   checkPrefix("my");
   checkPrefix("login");
