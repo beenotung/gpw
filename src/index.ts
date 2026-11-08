@@ -44,7 +44,8 @@ url.onchange = () => {
   ;
   function checkPrefix(prefix: string) {
     const pattern = prefix + ".";
-    if (s.startsWith(pattern) && s.length > pattern.length) {
+    const parts = s.split('.')
+    if (s.startsWith(pattern) && parts.length > 2) {
       s = s.substring(pattern.length);
     }
   }
@@ -63,6 +64,7 @@ url.onchange = () => {
   checkPrefix("auth");
   checkPrefix("services");
   checkPrefix("authenticator");
+  checkPrefix("connect");
   domain.value = s;
 };
 method.onchange = () => {
