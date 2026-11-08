@@ -35,7 +35,7 @@ Then open *index.html* from your browser
 ==== Online
 open link:https://gpw.surge.sh[] hosted on surge (CDN)
 
-or link:https://ipfs.io/ipfs/QmaiGk2GWNmpzmQj2aYzva6LcSaQtfeQHGQ8zMEUqMq7rh/[/ipfs/QmaiGk2GWNmpzmQj2aYzva6LcSaQtfeQHGQ8zMEUqMq7rh] via ipfs.io
+or link:https://ipfs.io/ipfs/QmeesATfB2kRi2tzSrbffqLKJG3LD7ThHELyRQoCWDTWV4/[/ipfs/QmeesATfB2kRi2tzSrbffqLKJG3LD7ThHELyRQoCWDTWV4] via ipfs.io
 
 == Todo
 1. update bash version to support length config
